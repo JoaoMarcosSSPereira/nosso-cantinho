@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componente Hub - Nosso Cantinho</title>
+    <!-- Links para fontes e ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --color-primary: #4CAF50;
+            --color-secondary: #81C784;
+            --color-tertiary: #A5D6A7;
+            --color-light-gray: #F5F5F5;
+            --color-dark-gray: #424242;
+            --color-white: #FFFFFF;
+        }
+
+        /* Estilos aplicados ao corpo da página onde o componente será embedado */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-dark-gray);
+            background-color: var(--color-light-gray);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* =================================== */
+        /* Estilos do Componente Hub de Navegação */
+        /* =================================== */
+        .hub-section {
+            padding: 5rem 0;
+            text-align: center;
+            background-color: var(--color-light-gray); /* Garante fundo consistente */
+        }
+
+        .hub-header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--color-dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        .hub-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 750px;
+            margin: 0 auto 4rem auto;
+        }
+
+        /* ============================ */
+        /* Grid de Navegação (Cards)    */
+        /* ============================ */
+        .hub-grid {
+            display: grid;
+            /* O grid se ajustará para 2 colunas em telas largas e 1 em telas estreitas */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+            max-width: 800px; /* Limita a largura máxima para 2 cards */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hub-card {
+            background-color: var(--color-white);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            transition: all 0.3s ease-out;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--color-primary);
+        }
+
+        .hub-card .icon-container {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            background-color: #e8f5e9; /* Verde bem claro */
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hub-card h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0 0 1rem 0;
+        }
+
+        .hub-card p {
+            font-size: 1.05rem;
+            color: #555;
+            flex-grow: 1;
+            margin-bottom: 2rem;
+        }
+
+        .hub-card-link {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .hub-card-link .lucide {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .hub-card:hover .hub-card-link .lucide {
+            transform: translateX(6px);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .hub-header h1 {
+                font-size: 2.5rem;
+            }
+            .hub-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- O conteúdo abaixo é o componente pronto para ser copiado e colado na sua landing page -->
+    <main>
+        <section id="nosso-cantinho" class="hub-section"> <!-- Adicionado um ID para navegação por âncora -->
+            <div class="container">
+                <div class="hub-header">
+                    <h1>Bem-vindo ao Nosso Cantinho</h1>
+                    <p>Este é o centro de conhecimento da JM Analytics. Explore nossos artigos técnicos e o hub de informações da empresa.</p>
+                </div>
+
+                <div class="hub-grid">
+                    <!-- Card 1: Artigos & Estudos (Newsletter/Blog) -->
+                    <a href="https://medium.com/@joaomarcossouzapereira94" target="_blank" class="hub-card"> <!-- LINK ATUALIZADO -->
+                        <div class="icon-container">
+                            <i data-lucide="file-text"></i>
+                        </div>
+                        <h3>Artigos & Estudos</h3>
+                        <p>Acesse análises aprofundadas, tutoriais e artigos sobre Ciência de Dados, Engenharia de Dados e Desenvolvimento Full Stack no Medium.</p>
+                        <span class="hub-card-link">
+                            Ler Artigos <i data-lucide="arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <!-- Card 2: Hub da JM -->
+                    <a href="https://www.notion.so/HUB-DE-ESTUDOS-236317b388b9801c8958e38990561dfd" target="_blank" class="hub-card"> <!-- LINK ATUALIZADO -->
+                        <div class="icon-container">
+                            <i data-lucide="building-2"></i>
+                        </div>
+                        <h3>Hub de Estudos</h3>
+                        <p>Um espaço centralizado com anotações, resumos e materiais de estudo sobre tecnologia e dados, organizado no Notion.</p>
+                        <span class="hub-card-link">
+                            Acessar Hub <i data-lucide="arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Inicializa os ícones Lucide
+        // Esta chamada deve ser feita na sua página principal (index.html) se já não estiver lá.
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
