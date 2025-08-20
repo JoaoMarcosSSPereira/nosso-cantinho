@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Componente Hub - Nosso Cantinho</title>
+    <title>Nosso Cantinho | JM Analytics</title>
     <!-- Links para fontes e ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -11,18 +11,25 @@
         :root {
             --color-primary: #4CAF50;
             --color-secondary: #81C784;
-            --color-tertiary: #A5D6A7;
-            --color-light-gray: #F5F5F5;
             --color-dark-gray: #424242;
+            --color-light-gray: #F5F5F5;
             --color-white: #FFFFFF;
+            --color-black: #000000;
         }
 
-        /* Estilos aplicados ao corpo da página onde o componente será embedado */
+        /* ============================ */
+        /* Estilos Globais e Reset CSS */
+        /* ============================ */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--color-dark-gray);
-            background-color: var(--color-light-gray);
+            background-color: var(--color-white);
             line-height: 1.6;
+            margin: 0;
         }
 
         a {
@@ -35,162 +42,495 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
-        /* =================================== */
-        /* Estilos do Componente Hub de Navegação */
-        /* =================================== */
-        .hub-section {
-            padding: 5rem 0;
+
+        .section-header {
             text-align: center;
-            background-color: var(--color-light-gray); /* Garante fundo consistente */
+            margin-bottom: 4rem;
         }
-
-        .hub-header h1 {
-            font-size: 3.2rem;
+        
+        .section-header h2 {
+            font-size: 2.8rem;
             font-weight: 700;
-            color: var(--color-dark-gray);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
-
-        .hub-header p {
-            font-size: 1.2rem;
+        
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
             color: #666;
-            max-width: 750px;
-            margin: 0 auto 4rem auto;
         }
 
-        /* ============================ */
-        /* Grid de Navegação (Cards)    */
-        /* ============================ */
-        .hub-grid {
-            display: grid;
-            /* O grid se ajustará para 2 colunas em telas largas e 1 em telas estreitas */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-            max-width: 800px; /* Limita a largura máxima para 2 cards */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hub-card {
-            background-color: var(--color-white);
-            padding: 2.5rem 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            text-align: left;
-            transition: all 0.3s ease-out;
-            border: 2px solid transparent;
+        /* ================================== */
+        /* Estilos da Seção Hero (Boas-vindas) */
+        /* ================================== */
+        .hero-cantinho {
+            background-color: var(--color-dark-gray);
+            color: var(--color-white);
+            text-align: center;
+            padding: 8rem 2rem;
             display: flex;
             flex-direction: column;
-        }
-
-        .hub-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-            border-color: var(--color-primary);
-        }
-
-        .hub-card .icon-container {
-            font-size: 3rem;
-            color: var(--color-primary);
-            margin-bottom: 1.5rem;
-            background-color: #e8f5e9; /* Verde bem claro */
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .hub-card h3 {
-            font-size: 1.8rem;
+        .hero-cantinho h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            line-height: 1.2;
+        }
+        
+        .hero-cantinho h1 span {
+            color: var(--color-secondary);
+        }
+
+        .hero-cantinho p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            border-color: var(--color-secondary);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-dark-gray);
+        }
+
+        /* =================================== */
+        /* Seção de Artigos em Destaque */
+        /* =================================== */
+        .articles-section {
+            padding: 6rem 0;
+            background-color: var(--color-white);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-card {
+            background-color: var(--color-white);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            padding: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            text-align: left;
+            transition: all 0.3s ease-out;
+            border: 1px solid #eee;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-primary);
+        }
+
+        .article-icon {
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        
+        .article-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .article-content p {
+            margin: 0 0 1.5rem 0;
+            color: #555;
+        }
+
+        .article-link {
+            font-weight: 600;
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .article-link .lucide {
+            transition: transform 0.3s ease;
+        }
+        
+        .article-card:hover .article-link .lucide {
+            transform: translateX(5px);
+        }
+
+        /* =================================== */
+        /* Estilos da Seção de Serviços/Produtos */
+        /* =================================== */
+        .products-section {
+            padding: 6rem 0;
+            background-color: var(--color-light-gray);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .product-card {
+            background-color: var(--color-white);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            transition: all 0.3s ease-out;
+            border-top: 5px solid var(--color-primary);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-icon {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-icon svg {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .product-card h3 {
+            font-size: 1.6rem;
             font-weight: 600;
             margin: 0 0 1rem 0;
         }
-
-        .hub-card p {
-            font-size: 1.05rem;
-            color: #555;
+        
+        .product-card p {
             flex-grow: 1;
             margin-bottom: 2rem;
+            color: #555;
         }
-
-        .hub-card-link {
+        
+        .product-link {
             display: inline-flex;
             align-items: center;
+            gap: 0.5rem;
             font-weight: 700;
             color: var(--color-primary);
             margin-top: auto;
             align-self: flex-start;
         }
-
-        .hub-card-link .lucide {
-            margin-left: 0.5rem;
+        
+        .product-link .lucide {
             transition: transform 0.3s ease;
         }
-
-        .hub-card:hover .hub-card-link .lucide {
+        
+        .product-card:hover .product-link .lucide {
             transform: translateX(6px);
         }
+
+        /* ===================================== */
+        /* Estilos da Seção CTA Final */
+        /* ===================================== */
+        .final-cta-section {
+            padding: 6rem 2rem;
+            background-color: var(--color-dark-gray);
+            color: var(--color-white);
+            text-align: center;
+        }
         
+        .final-cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta-section p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem auto;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ======================== */
+        /* Estilos do Rodapé (Footer) */
+        /* ======================== */
+        .footer {
+            background-color: #333;
+            color: var(--color-white);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: var(--color-secondary);
+            font-weight: 600;
+        }
+        
+        /* ============================ */
         /* Responsividade */
+        /* ============================ */
         @media (max-width: 768px) {
             .container {
                 padding: 0 1rem;
             }
-            .hub-header h1 {
+            .hero-cantinho h1 {
                 font-size: 2.5rem;
             }
-            .hub-grid {
+            .hero-cantinho p, .section-header p, .final-cta-section p {
+                font-size: 1.1rem;
+            }
+            .section-header h2, .final-cta-section h2 {
+                font-size: 2.2rem;
+            }
+            .products-grid, .articles-grid {
                 grid-template-columns: 1fr;
+            }
+            .article-card {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
-    <!-- O conteúdo abaixo é o componente pronto para ser copiado e colado na sua landing page -->
+
     <main>
-        <section id="nosso-cantinho" class="hub-section"> <!-- Adicionado um ID para navegação por âncora -->
+        <!-- Seção Hero: Abertura inspiradora -->
+        <section class="hero-cantinho">
+            <h1>Onde <span>Ideias</span> Ganham Vida</h1>
+            <p>Bem-vindo ao espaço criativo da JM Analytics. Aqui, transformamos conhecimento em ação, dados em decisões e suas ideias em realidade.</p>
+            <div class="hero-buttons">
+                <a href="#artigos-destaque" class="cta-button secondary">
+                    Ver Artigos <i data-lucide="arrow-down"></i>
+                </a>
+                <a href="#servicos" class="cta-button">
+                    Nossas Soluções <i data-lucide="arrow-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção de Artigos em Destaque -->
+        <section id="artigos-destaque" class="articles-section">
             <div class="container">
-                <div class="hub-header">
-                    <h1>Bem-vindo ao Nosso Cantinho</h1>
-                    <p>Este é o centro de conhecimento da JM Analytics. Explore nossos artigos técnicos e o hub de informações da empresa.</p>
+                <div class="section-header">
+                    <h2>Artigos em Destaque</h2>
+                    <p>Pesquisas e análises aprofundadas que fundamentam nosso trabalho e contribuem para a comunidade de dados.</p>
                 </div>
-
-                <div class="hub-grid">
-                    <!-- Card 1: Artigos & Estudos (Newsletter/Blog) -->
-                    <a href="https://medium.com/@joaomarcossouzapereira94" target="_blank" class="hub-card"> <!-- LINK ATUALIZADO -->
-                        <div class="icon-container">
-                            <i data-lucide="file-text"></i>
+                <div class="articles-grid">
+                    <!-- Artigo A -->
+                    <div class="article-card">
+                        <i data-lucide="book-open" class="article-icon"></i>
+                        <div class="article-content">
+                            <h3>Linha do Tempo da Computação Voltada a Dados</h3>
+                            <p>Uma viagem pela história, desde as primeiras máquinas de calcular até a era do Big Data e da Inteligência Artificial.</p>
+                            <a href="https://medium.com/@joaomarcossouzapereira94/linha-do-tempo-da-computa%C3%A7%C3%A3o-voltada-a-dados-9c5be8a7200a" target="_blank" class="article-link">
+                                Ler Artigo Completo <i data-lucide="arrow-right"></i>
+                            </a>
                         </div>
-                        <h3>Artigos & Estudos</h3>
-                        <p>Acesse análises aprofundadas, tutoriais e artigos sobre Ciência de Dados, Engenharia de Dados e Desenvolvimento Full Stack no Medium.</p>
-                        <span class="hub-card-link">
-                            Ler Artigos <i data-lucide="arrow-right"></i>
-                        </span>
-                    </a>
-
-                    <!-- Card 2: Hub da JM -->
-                    <a href="https://www.notion.so/HUB-DE-ESTUDOS-236317b388b9801c8958e38990561dfd" target="_blank" class="hub-card"> <!-- LINK ATUALIZADO -->
-                        <div class="icon-container">
-                            <i data-lucide="building-2"></i>
+                    </div>
+                    <!-- Artigo B -->
+                    <div class="article-card">
+                        <i data-lucide="book-open" class="article-icon"></i>
+                        <div class="article-content">
+                            <h3>Do Abstrato ao Algoritmo: A Jornada na Área de Dados</h3>
+                            <p>Uma reflexão pessoal e técnica sobre a transição de carreira e os desafios de se tornar um profissional de dados.</p>
+                            <a href="https://medium.com/@joaomarcossouzapereira94/do-abstrato-ao-algoritmo-a-jornada-de-mais-um-jo%C3%A3o-na-%C3%A1rea-de-dados-41b7af62d177" target="_blank" class="article-link">
+                                Ler Artigo Completo <i data-lucide="arrow-right"></i>
+                            </a>
                         </div>
-                        <h3>Hub de Estudos</h3>
-                        <p>Um espaço centralizado com anotações, resumos e materiais de estudo sobre tecnologia e dados, organizado no Notion.</p>
-                        <span class="hub-card-link">
-                            Acessar Hub <i data-lucide="arrow-right"></i>
-                        </span>
-                    </a>
+                    </div>
+                    <!-- Artigo C -->
+                    <div class="article-card">
+                        <i data-lucide="book-open" class="article-icon"></i>
+                        <div class="article-content">
+                            <h3>Inovar é Trair?</h3>
+                            <p>Uma análise sobre como a verdadeira inovação muitas vezes requer a quebra de paradigmas e a "traição" de métodos tradicionais.</p>
+                            <a href="https://medium.com/@joaomarcossouzapereira94/inovar-%C3%A9-trair-5074f5b0ce99" target="_blank" class="article-link">
+                                Ler Artigo Completo <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Artigo D -->
+                    <div class="article-card">
+                        <i data-lucide="book-open" class="article-icon"></i>
+                        <div class="article-content">
+                            <h3>A Arte de Contar Histórias com Dados</h3>
+                            <p>Descubra como transformar números e gráficos em narrativas envolventes que geram insights e impulsionam decisões.</p>
+                            <a href="https://medium.com/@joaomarcossouzapereira94/a-arte-de-contar-hist%C3%B3rias-254ef5239be7" target="_blank" class="article-link">
+                                Ler Artigo Completo <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Artigo E -->
+                    <div class="article-card">
+                        <i data-lucide="book-open" class="article-icon"></i>
+                        <div class="article-content">
+                            <h3>O Fantasma na Máquina</h3>
+                            <p>Uma exploração filosófica e técnica sobre a consciência, a IA e os limites entre o homem e a máquina.</p>
+                            <a href="https://medium.com/@joaomarcossouzapereira94/o-fantasma-na-m%C3%A1quina-2cb31850a0d0" target="_blank" class="article-link">
+                                Ler Artigo Completo <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Artigo F -->
+                    <div class="article-card">
+                        <i data-lucide="book-open" class="article-icon"></i>
+                        <div class="article-content">
+                            <h3>Receita Rápida: Landing Page Fresquinha em 5 Minutos</h3>
+                            <p>Um guia prático e direto para criar uma Landing Page de alta performance utilizando ferramentas modernas e eficientes.</p>
+                            <a href="https://medium.com/@joaomarcossouzapereira94/receita-r%C3%A1pida-landing-page-fresquinha-em-5-minutos-98866b7d2fd8" target="_blank" class="article-link">
+                                Ler Artigo Completo <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Artigo G -->
+                    <div class="article-card">
+                        <i data-lucide="book-open" class="article-icon"></i>
+                        <div class="article-content">
+                            <h3>Revolucionando a Saúde Digital</h3>
+                            <p>Case de estudo sobre o desenvolvimento de um software de passagem de plantão para UPAs e o impacto da tecnologia na saúde.</p>
+                            <a href="https://medium.com/@joaomarcossouzapereira94/revolucionando-a-sa%C3%BAde-digital-7b86393ff522" target="_blank" class="article-link">
+                                Ler Artigo Completo <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Artigo H -->
+                    <div class="article-card">
+                        <i data-lucide="book-open" class="article-icon"></i>
+                        <div class="article-content">
+                            <h3>Decifrando Big Data: O Que Realmente Importa</h3>
+                            <p>Além dos "Vs" do Big Data, uma discussão sobre como focar nos aspectos que realmente geram valor para o negócio.</p>
+                            <a href="https://medium.com/@joaomarcossouzapereira94/decifrando-big-data-o-que-realmente-importa-88a7b639c06e" target="_blank" class="article-link">
+                                Ler Artigo Completo <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Seção de Produtos/Serviços -->
+        <section id="servicos" class="products-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nossas Frentes de Atuação</h2>
+                    <p>Oferecemos um portfólio de serviços focado em extrair o máximo valor dos seus dados e potencializar suas ideias através da tecnologia.</p>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Card 1: Consultoria de Dados -->
+                    <div class="product-card">
+                        <i data-lucide="briefcase" class="product-icon"></i>
+                        <h3>Consultoria de Dados</h3>
+                        <p>Análise estratégica para o seu negócio. Ajudamos você a entender seus dados, identificar oportunidades e traçar um plano de ação para o crescimento.</p>
+                        <a href="https://wa.me/5535999706921?text=Ol%C3%A1%2C+tenho+interesse+em+Consultoria+de+Dados" target="_blank" class="product-link">
+                            Iniciar uma Conversa <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Card 2: Mentorias Personalizadas -->
+                    <div class="product-card">
+                        <i data-lucide="users" class="product-icon"></i>
+                        <h3>Mentorias Personalizadas</h3>
+                        <p>Acelere sua carreira em dados. Oferecemos sessões individuais para profissionais e estudantes que buscam orientação e desenvolvimento técnico.</p>
+                        <a href="https://wa.me/5535999706921?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+as+Mentorias" target="_blank" class="product-link">
+                            Saber Mais <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Card 3: Projetos Sob Demanda -->
+                    <div class="product-card">
+                        <i data-lucide="rocket" class="product-icon"></i>
+                        <h3>Projetos Sob Demanda</h3>
+                        <p>Tem uma ideia? Nós construímos. Desenvolvemos soluções completas, desde dashboards interativos e data apps até sistemas web customizados.</p>
+                        <a href="https://wa.me/5535999706921?text=Ol%C3%A1%2C+gostaria+de+discutir+um+projeto" target="_blank" class="product-link">
+                            Discutir um Projeto <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Card 4: Conteúdo e Artigos -->
+                    <div class="product-card">
+                        <i data-lucide="file-text" class="product-icon"></i>
+                        <h3>Conteúdo e Artigos</h3>
+                        <p>Explore nosso acervo de conhecimento com análises, tutoriais e insights sobre o universo dos dados, tecnologia e negócios.</p>
+                        <a href="https://medium.com/@joaomarcossouzapereira94" target="_blank" class="product-link">
+                            Ler no Medium <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de CTA Final -->
+        <section class="final-cta-section">
+            <div class="container">
+                <h2>Vamos Construir Algo Incrível Juntos?</h2>
+                <p>Se você tem um desafio, uma ideia ou um sonho que envolve dados e tecnologia, estamos prontos para ouvir e colaborar. Vamos transformar sua visão em realidade.</p>
+                <a href="https://wa.me/5535999706921" target="_blank" class="cta-button">
+                    <i data-lucide="send"></i> Enviar Mensagem
+                </a>
+            </div>
+        </section>
     </main>
+    
+    <footer class="footer">
+        <p>© 2025 JM Analytics | Desenvolvido por <a href="../index.html">João Marcos</a></p>
+    </footer>
 
     <script>
         // Inicializa os ícones Lucide
-        // Esta chamada deve ser feita na sua página principal (index.html) se já não estiver lá.
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
         }
